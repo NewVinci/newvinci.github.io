@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, NewVinci, 芬奇网， 芬奇课堂" />
+  <meta name="keywords" content="DeviceOne,App开发," />
 
 
 
@@ -87,15 +87,25 @@
 
 
 
-<meta name="description" content="It doesn&apos;t matter.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="NewVinci">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。 do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。这个IDE基于Eclipse RCP（富客户端平台Rich client plat">
+<meta name="keywords" content="DeviceOne,App开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《DeviceOne移动应用开发》(一)开发环境的搭建与使用">
+<meta property="og:url" content="http://yoursite.com/2017/04/10/deviceone-ch1/index.html">
 <meta property="og:site_name" content="NewVinci">
-<meta property="og:description" content="It doesn&apos;t matter.">
+<meta property="og:description" content="DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。 do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。这个IDE基于Eclipse RCP（富客户端平台Rich client plat">
+<meta property="og:image" content="http://yoursite.com/uploads/deviceone.jpg">
+<meta property="og:image" content="http://yoursite.com/uploads/download1.jpg">
+<meta property="og:image" content="http://yoursite.com/uploads/download2.jpg">
+<meta property="og:image" content="http://yoursite.com/uploads/dostudio.png">
+<meta property="og:image" content="http://yoursite.com/uploads/ui1.png">
+<meta property="og:image" content="http://yoursite.com/uploads/debug1.png">
+<meta property="og:image" content="http://yoursite.com/uploads/pack1.png">
+<meta property="og:updated_time" content="2017-04-10T10:41:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NewVinci">
-<meta name="twitter:description" content="It doesn&apos;t matter.">
+<meta name="twitter:title" content="《DeviceOne移动应用开发》(一)开发环境的搭建与使用">
+<meta name="twitter:description" content="DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。 do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。这个IDE基于Eclipse RCP（富客户端平台Rich client plat">
+<meta name="twitter:image" content="http://yoursite.com/uploads/deviceone.jpg">
 
 
 
@@ -123,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/10/deviceone-ch1/"/>
 
 
 
 
 
-  <title> NewVinci </title>
+  <title> 《DeviceOne移动应用开发》(一)开发环境的搭建与使用 | NewVinci </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,9 +267,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -291,10 +299,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/10/deviceone-ch1/" itemprop="url">
-                  《DeviceOne移动应用开发》(一)开发环境的搭建与使用
-                </a>
+                《DeviceOne移动应用开发》(一)开发环境的搭建与使用
               
             
           </h1>
@@ -378,9 +383,7 @@
       
 
       
-        
-          
-            <p>   DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。</p>
+        <p>   DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。</p>
 <p>do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。<br>这个IDE基于Eclipse RCP（富客户端平台Rich client platform的缩写）开发，基本操作十分相似。这个IDE是跨平台的，目前支持Windows和Mac两个系统。</p>
 <h2 id="IDE的下载与安装"><a href="#IDE的下载与安装" class="headerlink" title="IDE的下载与安装"></a>IDE的下载与安装</h2><p>IDE的下载十分简单。进入<a href="http://doc.deviceone.net/web/doc/env/ide.htm" target="_blank" rel="external">http://doc.deviceone.net/web/doc/env/ide.htm</a>即可下载。<br>如果你记不住这个网址，有以下方法：</p>
 <ol>
@@ -430,210 +433,79 @@
 <li>应用开发基本上都是在用调试终端调试代码，一旦应用功能完后需要通过打成一个正式的安装包，有自己的图标，名称，签名等等，可以上传官方的Appstore，可以给最终用户下载使用。只需点击工具栏的<code>发布版本</code>按钮。<br><img src="/uploads/pack1.png" alt=""></li>
 </ol>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="芬奇妞 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/deviceone_intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="芬奇妞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NewVinci">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/08/deviceone_intro/" itemprop="url">
-                  《DeviceOne移动应用开发》课程导语
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T13:14:35+08:00">
-                2017-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/系列教程/" itemprop="url" rel="index">
-                    <span itemprop="name">系列教程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/系列教程/移动应用开发/" itemprop="url" rel="index">
-                    <span itemprop="name">移动应用开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/DeviceOne/" rel="tag"># DeviceOne</a>
           
-
+            <a href="/tags/App开发/" rel="tag"># App开发</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-            <p>这一学期给学生上一个叫做《移动应用产品设计》的课程。讲实在话，这个课程不同专业背景的老师上，会有不同的教学内容。分析实际情况，我希望学生能作出一个APP产品来。但我的学生并不是学软件工程或计算机的，如果让他们开发原生APP，那几乎是异想天开。但他们之前上过Web前端的课程，学了点儿Javascript（后来的事实证明他们全忘光了，好像老师从来没有讲过一样，无奈我又补充了一些Javascript基础知识），具有一定的开发基础。我就试着找这样一个平台。</p>
-<p>曾经想要用微信小程序，但是当时小程序还没有开放给个人用户，而且是个新生事物，我不能贸然将一个课程建设在一个未知的领域上，虽然我很看好。</p>
-<p>在准备课程的过程中，我发现了一个适合我们学生的平台，这就是DeviceOne，号称是跨平台、低成本、纯原生（实际上是对原生接口进行了封装）的APP开发服务，重点是，支持Javascript，这就不需要任何的技术迁移，而且使用这个平台，非常简单，学生之需要了解它的基本工作原理，像搭积木一样就可以将应用做出来，对于我的教学目标来说，足够了！</p>
-<p>本教程是我在上课过程中的一个梳理，供有兴趣的朋友们参考。初步定为八讲，其实就是一个入门教程。</p>
-<ul>
-<li>第一讲 开发环境的搭建与使用</li>
-<li>第二讲 工作原理与机制</li>
-<li>第三讲 应用的创建与设置</li>
-<li>第四讲 页面的新建与编辑</li>
-<li>第五讲 组件添加与页面布局</li>
-<li>第六讲 应用程序逻辑的实现</li>
-<li>第七讲 应用的打包与发布</li>
-<li>第八讲 常见问题汇总（此讲为动态更新）</li>
-</ul>
-<p>后续也可能会推送高阶教程，欢迎大家关注。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/08/deviceone_intro/" rel="prev" title="《DeviceOne移动应用开发》课程导语">
+                《DeviceOne移动应用开发》课程导语 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -641,6 +513,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -660,8 +536,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -757,6 +642,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE的下载与安装"><span class="nav-number">1.</span> <span class="nav-text">IDE的下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE的使用"><span class="nav-number">2.</span> <span class="nav-text">IDE的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用工程管理："><span class="nav-number">2.1.</span> <span class="nav-text">应用工程管理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程代码管理"><span class="nav-number">2.2.</span> <span class="nav-text">工程代码管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI设计"><span class="nav-number">2.3.</span> <span class="nav-text">UI设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码编辑"><span class="nav-number">2.4.</span> <span class="nav-text">代码编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真机调试"><span class="nav-number">2.5.</span> <span class="nav-text">真机调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#云打包"><span class="nav-number">2.6.</span> <span class="nav-text">云打包</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -864,6 +765,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

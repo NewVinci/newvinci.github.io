@@ -90,7 +90,7 @@
 <meta name="description" content="文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档  通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。 这节课我们将要实现的demo效果如下 大家可以导入示例代码来学习研究如">
 <meta name="keywords" content="DeviceOne,App开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《DeviceOne移动应用开发》（三）布局组件的使用">
+<meta property="og:title" content="《DeviceOne移动应用开发》（三）搭建APP页面主框架——布局组件的使用">
 <meta property="og:url" content="http://yoursite.com/2017/04/11/deviceone-ch3/index.html">
 <meta property="og:site_name" content="NewVinci">
 <meta property="og:description" content="文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档  通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。 这节课我们将要实现的demo效果如下 大家可以导入示例代码来学习研究如">
@@ -105,9 +105,9 @@
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160310/3a7846780640484bbed3844cc51f9df6.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160310/0673373b3f3741bbb6c64bcf613066bd.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160310/9657e61dd1484233b9ed4844d7ede04a.jpg">
-<meta property="og:updated_time" content="2017-04-19T03:38:58.000Z">
+<meta property="og:updated_time" content="2017-04-19T03:53:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《DeviceOne移动应用开发》（三）布局组件的使用">
+<meta name="twitter:title" content="《DeviceOne移动应用开发》（三）搭建APP页面主框架——布局组件的使用">
 <meta name="twitter:description" content="文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档  通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。 这节课我们将要实现的demo效果如下 大家可以导入示例代码来学习研究如">
 <meta name="twitter:image" content="http://doc.deviceone.net/web/img/20160317/f1644636f3b64995a34d88e93e736abc.jpg">
 
@@ -143,7 +143,7 @@
 
 
 
-  <title> 《DeviceOne移动应用开发》（三）布局组件的使用 | NewVinci </title>
+  <title> 《DeviceOne移动应用开发》（三）搭建APP页面主框架——布局组件的使用 | NewVinci </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +303,7 @@
             
             
               
-                《DeviceOne移动应用开发》（三）布局组件的使用
+                《DeviceOne移动应用开发》（三）搭建APP页面主框架——布局组件的使用
               
             
           </h1>
@@ -440,6 +440,7 @@
 </ol>
 <h2 id="第二步：订阅touch事件并实现交互效果"><a href="#第二步：订阅touch事件并实现交互效果" class="headerlink" title="第二步：订阅touch事件并实现交互效果"></a>第二步：订阅<code>touch</code>事件并实现交互效果</h2><p><code>ImageView</code>和<code>ALayout</code>都有点击事件（<code>touch</code>），为了让用户有更好的体验，我们加大点击响应范围，将<code>touch</code>事件订阅在Bottom的四个ALayout中，并在该事件中通过改变其他ALayout里<code>Label</code>的文字颜色和<code>ImageView</code>图片<code>source</code>来达到点击选中的效果。<br><img src="http://doc.deviceone.net/web/img/20160310/0673373b3f3741bbb6c64bcf613066bd.jpg" alt=""></p>
 <h2 id="第三步：实现APP的退出功能"><a href="#第三步：实现APP的退出功能" class="headerlink" title="第三步：实现APP的退出功能"></a>第三步：实现APP的退出功能</h2><p>我们想让这个demo在android设备上能通过点击手机上的“<code>返回</code>”虚拟按键来返回到debug首页（实际上就是退出APP），需要用到刚刚我们定义过的<code>Notification、Global 和 Page</code>组件，还有一个mm组件<code>Timer</code>定时器，mm组件的定义方式跟sm组件相同，只需要组件类型即可定义。<br>点击android手机上的“<code>返回</code>”虚拟按键会触发<code>Page</code>组件的<code>back</code>事件，所以我们订阅<code>back</code>事件并在<code>back</code>事件里处理返回还是退出。<br><img src="http://doc.deviceone.net/web/img/20160310/9657e61dd1484233b9ed4844d7ede04a.jpg" alt=""><br>到这里，一个能响应点击事件并切换图片的demo就完成了。</p>
+<p>需要跟大家说明的是，<code>deviceone</code>的布局组件不止有<code>ALayout</code>一种，有关更多布局类组件的知识，请参考<a href="http://doc.deviceone.net/web/doc/detail_course/layout.htm" target="_blank" rel="external">官方进阶教程</a>。</p>
 
       
     </div>
@@ -488,6 +489,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/19/deviceone-ch4/" rel="next" title="《DeviceOne移动应用开发》（四）完善APP页面主框架——容器组件的使用">
+                <i class="fa fa-chevron-left"></i> 《DeviceOne移动应用开发》（四）完善APP页面主框架——容器组件的使用
+              </a>
             
           </div>
 
@@ -569,7 +574,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

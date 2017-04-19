@@ -270,6 +270,201 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/deviceone-ch4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="芬奇妞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NewVinci">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/19/deviceone-ch4/" itemprop="url">
+                  《DeviceOne移动应用开发》（四）完善APP页面主框架——容器组件的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T11:42:50+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/" itemprop="url" rel="index">
+                    <span itemprop="name">系列教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/移动应用开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动应用开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。<br><a href="http://doc.deviceone.net/web/doc/basic_course/completeFrame.htm" target="_blank" rel="external">戳此查看官方文档</a></p>
+</blockquote>
+<p>我们在上节课中已经学会了如何<a href="https://newvinci.github.io/2017/04/11/deviceone-ch3/" target="_blank" rel="external">搭建主框架</a>。本节课就是在这个主框架基础上进行进一步的完善。要完成的案例效果如下图所示：<br><img src="http://doc.deviceone.net/web/img/20160317/5ebe33e5f6d34910bb6b518f9943a08d.gif" alt=""><br>本节示例demo请<a href="http://doc.deviceone.net/web/zip/20160714/97e790314e2944d6b40ad710dd0fadcb.zip" target="_blank" rel="external">戳此下载</a>。<br>我们使用上节课完成的例子来继续做。</p>
+<p>我们分析一下这个demo，通过效果图可以看出，其目标是通过点击Bottom Bar上的不同按钮来切换内容。这种情况下最适合用<code>ViewShower</code>这个组件，ViewShower是一个包含多个子View的UI容器组件。详情参考<a href="http://store.deviceone.net/store-detail.html?name=do_ViewShower&amp;version=2.1&amp;chineseName=多视图切换容器(UI" target="_blank" rel="external">多视图切换容器</a>)。</p>
+<h1 id="完善主框架"><a href="#完善主框架" class="headerlink" title="完善主框架"></a>完善主框架</h1><h2 id="第一步：添加ViewShower组件并设置属性"><a href="#第一步：添加ViewShower组件并设置属性" class="headerlink" title="第一步：添加ViewShower组件并设置属性"></a>第一步：添加<code>ViewShower</code>组件并设置属性</h2><p>我们从组件列表里拖一个<code>ViewShower</code>到UI设计页面中，并通过调整<code>x/y/width/height</code>的值分别为“<code>0,0,750,1109</code>”，将其固定在body的位置，把组件ID改为<code>do_ViewShower_main</code>。<br><img src="/uploads/do_ch4_1.png" alt=""></p>
+<h2 id="第二步：实例化ViewShower组件"><a href="#第二步：实例化ViewShower组件" class="headerlink" title="第二步：实例化ViewShower组件"></a>第二步：实例化<code>ViewShower</code>组件</h2><p>双击index.ui.js打开代码编辑页面，先通过ID实例化ViewShower组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入组件库</span></div><div class="line"><span class="keyword">var</span> do_Notification = sm(<span class="string">"do_Notification"</span>);</div><div class="line"><span class="keyword">var</span> do_Global = sm(<span class="string">"do_Global"</span>);</div><div class="line"><span class="keyword">var</span> do_App = sm(<span class="string">"do_App"</span>);</div><div class="line"><span class="keyword">var</span> do_Page = sm(<span class="string">"do_Page"</span>);</div><div class="line"><span class="comment">//声明UI变量</span></div><div class="line"><span class="keyword">var</span> do_ALayout_root=ui(<span class="string">"do_ALayout_root"</span>);</div><div class="line"><span class="keyword">var</span> do_ALayout_b0=ui(<span class="string">"do_ALayout_b0"</span>);</div><div class="line"><span class="keyword">var</span> do_ALayout_b1=ui(<span class="string">"do_ALayout_b1"</span>);</div><div class="line"><span class="keyword">var</span> do_ALayout_b2=ui(<span class="string">"do_ALayout_b2"</span>);</div><div class="line"><span class="keyword">var</span> do_ALayout_b3=ui(<span class="string">"do_ALayout_b3"</span>);</div><div class="line"><span class="keyword">var</span> do_ImageView_b0=ui(<span class="string">"do_ImageView_b0"</span>);</div><div class="line"><span class="keyword">var</span> do_ImageView_b1=ui(<span class="string">"do_ImageView_b1"</span>);</div><div class="line"><span class="keyword">var</span> do_ImageView_b2=ui(<span class="string">"do_ImageView_b2"</span>);</div><div class="line"><span class="keyword">var</span> do_ImageView_b3=ui(<span class="string">"do_ImageView_b3"</span>);</div><div class="line"><span class="keyword">var</span> do_Label_b0=ui(<span class="string">"do_Label_b0"</span>);</div><div class="line"><span class="keyword">var</span> do_Label_b1=ui(<span class="string">"do_Label_b1"</span>);</div><div class="line"><span class="keyword">var</span> do_Label_b2=ui(<span class="string">"do_Label_b2"</span>);</div><div class="line"><span class="keyword">var</span> do_Label_b3=ui(<span class="string">"do_Label_b3"</span>);</div><div class="line"><span class="comment">//实例化do_ViewShower_main组件。</span></div><div class="line"><span class="keyword">var</span> do_ViewShower_main=ui(<span class="string">"do_ViewShower_main"</span>);</div></pre></td></tr></table></figure>
+<h2 id="第三步：给ViewShower绑定数据"><a href="#第三步：给ViewShower绑定数据" class="headerlink" title="第三步：给ViewShower绑定数据"></a>第三步：给ViewShower绑定数据</h2><p>在DeviceOne的组件库中，<code>ViewShower</code>、<code>ListView</code>等这种容器类都是采用MVVM形式来绑定数据的，使得开发人员可以将View和业务逻辑分离出来。在这个课程中我们不讨论什么是MVVM，感兴趣的同学可以自行百度。<br><img src="http://doc.deviceone.net/web/img/20160317/bbc23dfcb4d9495290fd2f99383bf54c.jpg" alt=""></p>
+<h3 id="首先，定义要绑定的数据"><a href="#首先，定义要绑定的数据" class="headerlink" title="首先，定义要绑定的数据"></a>首先，定义要绑定的数据</h3><p>先给<code>ViewShower</code>定义需要绑定的数据<code>viewShower_data</code>，这里有两个参数需要说明。<code>id</code>需要保持唯一，否则后id已经存在，会覆盖之前的View；<code>path</code>为需要展示的子View所在的UI页面的绝对路径。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绑定ViewShower的3个子页面</span></div><div class="line"><span class="keyword">var</span> viewShower_data = [ </div><div class="line">	&#123;</div><div class="line">		<span class="string">"id"</span> : <span class="string">"news"</span>,</div><div class="line">		<span class="string">"path"</span> : <span class="string">"source://view/news/main.ui"</span></div><div class="line">	&#125;, </div><div class="line">	&#123;</div><div class="line">		<span class="string">"id"</span> : <span class="string">"contact"</span>,</div><div class="line">		<span class="string">"path"</span> : <span class="string">"source://view/contact/main.ui"</span></div><div class="line">	&#125;, </div><div class="line">	&#123;</div><div class="line">		<span class="string">"id"</span> : <span class="string">"find"</span>,</div><div class="line">		<span class="string">"path"</span> : <span class="string">"source://view/find/main.ui"</span></div><div class="line">	&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>此时path所指的三个页面还不存在，等一下来创建。</p>
+</blockquote>
+<h3 id="然后，绑定数据并设置默认显示页面"><a href="#然后，绑定数据并设置默认显示页面" class="headerlink" title="然后，绑定数据并设置默认显示页面"></a>然后，绑定数据并设置默认显示页面</h3><p>定义好数据后，通过 <code>ViewShower</code>的<code>addViews</code>方法将数据绑定进去。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">do_ViewShower_main.addViews(viewShower_data);</div></pre></td></tr></table></figure>
+<p>调用<code>showView</code>方法使其先默认显示第一个页面，即id为”news”的子页面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//默认显示第1个页面</span></div><div class="line">do_ViewShower_main.showView(<span class="string">"news"</span>);</div></pre></td></tr></table></figure>
+<h3 id="最后，在按钮的touch事件中添加切换子view的代码"><a href="#最后，在按钮的touch事件中添加切换子view的代码" class="headerlink" title="最后，在按钮的touch事件中添加切换子view的代码"></a>最后，在按钮的<code>touch</code>事件中添加切换子view的代码</h3><p>换子View的方法showView，并通过show不同id的子View来切换页面。<br><img src="http://doc.deviceone.net/web/img/20160317/c50360a66ebb448398f8024559e21e1b.jpg" alt=""></p>
+<h1 id="完成viewShower子视图"><a href="#完成viewShower子视图" class="headerlink" title="完成viewShower子视图"></a>完成<code>viewShower子视图</code></h1><p>前面我们虽然为主页面添加了<code>viewShower</code>组件，并绑定了数据，但其中的<code>path</code>所指向的<code>UI</code>文件是不存在的，我们必须创建这些文件，才能够正确显示。<br><img src="http://doc.deviceone.net/web/img/20160317/e2b954d244c1459093e14d7bb018ada8.jpg" alt=""></p>
+<ol>
+<li><strong>新建第一个子视图</strong>：在<code>view</code>目录上点击右键，选择<code>New</code>-<code>Folder</code>，填写要创建的目录名称为<code>”news”</code>，新建后再在<code>news</code>目录上点击右键，选择<code>New</code>-<code>UI File</code>，新建名称为<code>“main”</code>的UI界面，在创建页面的同时IDE会同时创建一个跟<code>main.ui</code>关联的代码文件<code>main.ui.js</code>。</li>
+<li><strong>子视图布局</strong>：双击打开main.ui文件，向页面的最外层<code>ALayout</code>中再拖进一个<code>ALayout</code>组件作为<code>viewShower</code>子View的最外层容器，修改它的id为<code>do_ALayout_main</code>，调整高度为“1109”，因为在主页面<code>index.ui</code>中<code>viewShower</code>的高度也为“1109”，<strong>如果子View的宽高超过它父容器<code>viewShower</code>的宽高会导致内容显示不全的问题</strong>。<img src="http://doc.deviceone.net/web/img/20160317/9b06cfd64e6f4121abd203cacc4b2be7.jpg" alt=""></li>
+<li><strong>子视图内容添加</strong>：再向该页面的<code>o_ALayout_main</code>d中拖拽一个<code>Label</code>，修改<code>Label</code>的<code>text</code>为“新闻”。这样<code>viewShower</code>的一个子View就完成了。</li>
+<li><strong>快速创建其他子视图</strong>：其他两个子View也是相同内容，所以只需<strong>复制</strong>该页面即可，在<code>news</code>目录上点击右键，选择<code>Copy</code>,再点击<code>View</code>目录选择<code>Paste</code>，填写目录名为“find”；打开<code>main.ui</code>修改<code>Label</code>的<code>text</code>为“搜索”即可；同样的再复制、粘贴一次，修改目录名为“contact”、<code>Label</code>的<code>text</code>为“通讯录”，这样<code>viewShower</code>的三个子View就完成了。（再多复制一份，目录名改成“feedback”，Label的text为“反馈”，为后续做准备。）</li>
+</ol>
+<p>通过以上步骤，我们点击“<code>新闻</code>”、“<code>通讯录</code>”、“<code>发现</code>”按钮就可以实现子视图的切换了。</p>
+<h1 id="新页面的打开与关闭"><a href="#新页面的打开与关闭" class="headerlink" title="新页面的打开与关闭"></a>新页面的打开与关闭</h1><p>在Bottom Bar中，我们想通过点击第四个按钮“<code>反馈</code>”来另外打开一个新页面，让用户填写反馈信息。</p>
+<h2 id="UI实现"><a href="#UI实现" class="headerlink" title="UI实现"></a>UI实现</h2><p>先双击打开<code>feedback</code>目录中的<code>main.ui</code>文件，在<code>do_ALayout_main</code>中继续添加一个<code>ALayout</code>作为该页面的top，ID改为<code>do_ALayout_1</code>，调整宽高分别为<code>750/128</code>；再向<code>do_ALayout_1</code>中添加一个<code>ALayout</code>用于点击，ID改为<code>do_ALayout_back</code>，调整位置、宽高分别为<code>x=4，y=6，width=147，height=110</code>；再向<code>do_ALayout_back</code>中添加一个<code>Label</code>用于展示文字，ID改为<code>do_Label_3</code>，将<code>Label</code>的<code>text</code>改为“返回”。<br><img src="http://doc.deviceone.net/web/img/20160317/6e9fecedea5a40038354df072951016c.jpg" alt=""></p>
+<h2 id="功能逻辑实现"><a href="#功能逻辑实现" class="headerlink" title="功能逻辑实现"></a>功能逻辑实现</h2><h3 id="新页面的关闭"><a href="#新页面的关闭" class="headerlink" title="新页面的关闭"></a>新页面的关闭</h3><p>打开<code>main.ui.js</code>，订阅<code>do_ALayout_back</code>的点击事件用于关闭该页面。同时处理在点击<code>android</code>设备的虚拟<code>返回</code>按钮时也关闭该页面。<br><img src="http://doc.deviceone.net/web/img/20160317/e04780e06fa94f758900e9e06586f726.jpg" alt=""></p>
+<h3 id="新页面的打开"><a href="#新页面的打开" class="headerlink" title="新页面的打开"></a>新页面的打开</h3><p>上面已经将feedback页面的UI界面和相应的功能完成，但是现在是不可用的状态，因为我们无法从主页面打开刚刚新建的这个feedback页面，它们之间没有建立任何关联。</p>
+<p>回到<code>index.ui.js</code>，在<code>do_ALayout_b3</code>的<code>touch</code>事件中调用app的<code>openPage</code>方法，将目标地址指向刚刚调整过的“<code>/feedback/main.ui</code>”页面，将顶部状态栏显示状态改为透明（控制<code>statusBarState</code>参数为“transparent”），以全屏形式打开新页，同时将打开页面的动画类型（<code>animationType</code>）改成从右往左推出（“push_r2l”）。<br><img src="http://doc.deviceone.net/web/img/20160317/ff5f06502b3f4300a6fa3bcb226f1447.jpg" alt=""></p>
+<h1 id="为APP添加启动动画"><a href="#为APP添加启动动画" class="headerlink" title="为APP添加启动动画"></a>为APP添加启动动画</h1><p>为了让app有更生动的效果，我们让demo一进入的时候有一个动画效果作为欢迎页面。</p>
+<h2 id="UI实现-1"><a href="#UI实现-1" class="headerlink" title="UI实现"></a>UI实现</h2><p>在<code>source://view</code>下创建一个和<code>index.ui</code>平级的<code>start.ui</code>页面，在根<code>ALayout</code>里添加一个与根<code>ALayout</code>一样大小的<code>ImageView</code>，将ID改为<code>do_ImageView_content</code>,设置<code>ImageView</code>的<code>source</code>属性以显示图片；再添加一个<code>Label</code>组件，修改ID为<code>do_Label_welcome</code>，修改<code>do_Label_welcome</code>的<code>fontColor/fontSize</code>属性调整显示字体的颜色和大小，页面就完成了。<br><img src="http://doc.deviceone.net/web/img/20160317/b5d8ff0c7e7c49ce9ec75ff3d684d3e9.jpg" alt=""></p>
+<h2 id="功能逻辑实现-1"><a href="#功能逻辑实现-1" class="headerlink" title="功能逻辑实现"></a>功能逻辑实现</h2><ol>
+<li>双击打开<code>start.ui.js</code>页面，先实例化当前页面的UI组件，并定义需要使用到的相关组件。</li>
+<li>实例化一个MM组件<code>Animation</code>用于调用UI组件的动画，这个动画是控制ImageView组件的，所以我们可以将其定义为img_anima，这样更可以体现命名的语义性。</li>
+<li>通过修改img_anima的属性和方法可以控制动画的播放方式。有关<code>Animation</code>组件的使用请<a href="http://store.deviceone.net/store-detail.html?name=do_Animation&amp;version=1.4&amp;chineseName=动画组合(MM" target="_blank" rel="external">参考</a>)。 <br> <img src="http://doc.deviceone.net/web/img/20160317/2b07c023736345c083916d145cfe7b86.jpg" alt=""></li>
+<li>接下来也是同样的方法给<code>Label</code>定义一个旋转的动画。</li>
+<li>最后通过调用所有UI组件都通用的<code>animate</code>方法,将定义的这些动画加载到UI组件上并在动画完成后打开新页<code>index.ui</code>。<br><img src="http://doc.deviceone.net/web/img/20160317/7ff124f9036e4b328e4a1f92bd0cd4ee.jpg" alt=""></li>
+</ol>
+<p>本节课仅以<code>ViewShower</code>为例介绍容器类组件，更多详细内容请参考<a href="http://doc.deviceone.net/web/doc/detail_course/uicontainer.htm" target="_blank" rel="external">进阶教程</a>。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/deviceone-ch3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -293,7 +488,7 @@
               
                 
                 <a class="post-title-link" href="/2017/04/11/deviceone-ch3/" itemprop="url">
-                  《DeviceOne移动应用开发》（三）布局组件的使用
+                  《DeviceOne移动应用开发》（三）搭建APP页面主框架——布局组件的使用
                 </a>
               
             
@@ -433,6 +628,7 @@
 </ol>
 <h2 id="第二步：订阅touch事件并实现交互效果"><a href="#第二步：订阅touch事件并实现交互效果" class="headerlink" title="第二步：订阅touch事件并实现交互效果"></a>第二步：订阅<code>touch</code>事件并实现交互效果</h2><p><code>ImageView</code>和<code>ALayout</code>都有点击事件（<code>touch</code>），为了让用户有更好的体验，我们加大点击响应范围，将<code>touch</code>事件订阅在Bottom的四个ALayout中，并在该事件中通过改变其他ALayout里<code>Label</code>的文字颜色和<code>ImageView</code>图片<code>source</code>来达到点击选中的效果。<br><img src="http://doc.deviceone.net/web/img/20160310/0673373b3f3741bbb6c64bcf613066bd.jpg" alt=""></p>
 <h2 id="第三步：实现APP的退出功能"><a href="#第三步：实现APP的退出功能" class="headerlink" title="第三步：实现APP的退出功能"></a>第三步：实现APP的退出功能</h2><p>我们想让这个demo在android设备上能通过点击手机上的“<code>返回</code>”虚拟按键来返回到debug首页（实际上就是退出APP），需要用到刚刚我们定义过的<code>Notification、Global 和 Page</code>组件，还有一个mm组件<code>Timer</code>定时器，mm组件的定义方式跟sm组件相同，只需要组件类型即可定义。<br>点击android手机上的“<code>返回</code>”虚拟按键会触发<code>Page</code>组件的<code>back</code>事件，所以我们订阅<code>back</code>事件并在<code>back</code>事件里处理返回还是退出。<br><img src="http://doc.deviceone.net/web/img/20160310/9657e61dd1484233b9ed4844d7ede04a.jpg" alt=""><br>到这里，一个能响应点击事件并切换图片的demo就完成了。</p>
+<p>需要跟大家说明的是，<code>deviceone</code>的布局组件不止有<code>ALayout</code>一种，有关更多布局类组件的知识，请参考<a href="http://doc.deviceone.net/web/doc/detail_course/layout.htm" target="_blank" rel="external">官方进阶教程</a>。</p>
 
           
         
@@ -1150,7 +1346,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

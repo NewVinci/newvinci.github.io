@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, NewVinci, 芬奇网， 芬奇课堂" />
+  <meta name="keywords" content="DeviceOne,App开发," />
 
 
 
@@ -87,13 +87,13 @@
 
 
 
-<meta name="description" content="title: 《DeviceOne移动应用开发》（三）布局组件的使用date: 2017-04-11 19:10:03categories:  系列教程 移动应用开发tags: DeviceOne App开发 文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档    通过上一课的学习，大家已经掌握了如何通过dodebuge">
-<meta name="keywords">
+<meta name="description" content="文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档  通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。 这节课我们将要实现的demo效果如下 大家可以导入示例代码来学习研究如">
+<meta name="keywords" content="DeviceOne,App开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NewVinci">
+<meta property="og:title" content="《DeviceOne移动应用开发》（三）布局组件的使用">
 <meta property="og:url" content="http://yoursite.com/2017/04/11/deviceone-ch3/index.html">
 <meta property="og:site_name" content="NewVinci">
-<meta property="og:description" content="title: 《DeviceOne移动应用开发》（三）布局组件的使用date: 2017-04-11 19:10:03categories:  系列教程 移动应用开发tags: DeviceOne App开发 文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档    通过上一课的学习，大家已经掌握了如何通过dodebuge">
+<meta property="og:description" content="文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档  通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。 这节课我们将要实现的demo效果如下 大家可以导入示例代码来学习研究如">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160317/f1644636f3b64995a34d88e93e736abc.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160309/7dc8eced257f46f68e7c845669fccc83.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160309/6b8df29e49a14df196eb83c7c0a23fcc.jpg">
@@ -104,10 +104,10 @@
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160310/3a7846780640484bbed3844cc51f9df6.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160310/0673373b3f3741bbb6c64bcf613066bd.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160310/9657e61dd1484233b9ed4844d7ede04a.jpg">
-<meta property="og:updated_time" content="2017-04-19T03:01:12.000Z">
+<meta property="og:updated_time" content="2017-04-19T03:08:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NewVinci">
-<meta name="twitter:description" content="title: 《DeviceOne移动应用开发》（三）布局组件的使用date: 2017-04-11 19:10:03categories:  系列教程 移动应用开发tags: DeviceOne App开发 文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档    通过上一课的学习，大家已经掌握了如何通过dodebuge">
+<meta name="twitter:title" content="《DeviceOne移动应用开发》（三）布局组件的使用">
+<meta name="twitter:description" content="文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。戳此查看官方文档  通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。 这节课我们将要实现的demo效果如下 大家可以导入示例代码来学习研究如">
 <meta name="twitter:image" content="http://doc.deviceone.net/web/img/20160317/f1644636f3b64995a34d88e93e736abc.jpg">
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <title>  | NewVinci </title>
+  <title> 《DeviceOne移动应用开发》（三）布局组件的使用 | NewVinci </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +302,7 @@
             
             
               
-                
+                《DeviceOne移动应用开发》（三）布局组件的使用
               
             
           </h1>
@@ -327,6 +327,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/" itemprop="url" rel="index">
+                    <span itemprop="name">系列教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/移动应用开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动应用开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -353,17 +386,9 @@
       
 
       
-        <hr>
-<p>title: 《DeviceOne移动应用开发》（三）布局组件的使用<br>date: 2017-04-11 19:10:03<br>categories:</p>
-<ul>
-<li>系列教程</li>
-<li>移动应用开发<br>tags:</li>
-<li>DeviceOne</li>
-<li><h2 id="App开发"><a href="#App开发" class="headerlink" title="App开发"></a>App开发</h2><blockquote>
+        <blockquote>
 <p>文前声明：本文汇编自DeviceOne官方文档，根据需要进行了编辑修改。仅用于教学和知识分享，不做商业用途。<br><a href="http://doc.deviceone.net/web/doc/basic_course/buildFrame.htm" target="_blank" rel="external">戳此查看官方文档</a></p>
 </blockquote>
-</li>
-</ul>
 <p>通过上一课的学习，大家已经掌握了如何通过dodebuger来跟PC上的do studio IDE联调来实时查看UI设计效果、调试代码了，接下来我们通过一系列的案例教学来学习如何开发一个真正的App。</p>
 <p>这节课我们将要实现的demo效果如下<img src="http://doc.deviceone.net/web/img/20160317/f1644636f3b64995a34d88e93e736abc.jpg" alt=""></p>
 <p>大家可以导入<a href="http://doc.deviceone.net/web/zip/20160714/87fb237ab2ad4fffb85acf4c46ed4165.zip" target="_blank" rel="external">示例代码</a>来学习研究如何实现这个效果。这个文件是一个zip包，导入方法如下：</p>
@@ -444,6 +469,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DeviceOne/" rel="tag"># DeviceOne</a>
+          
+            <a href="/tags/App开发/" rel="tag"># App开发</a>
+          
+        </div>
       
 
       
@@ -621,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#App开发"><span class="nav-number">1.</span> <span class="nav-text">App开发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用程序的脚本入口app-js"><span class="nav-number"></span> <span class="nav-text">应用程序的脚本入口app.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：-require-“deviceone”"><span class="nav-number">0.1.</span> <span class="nav-text">第一步： require(“deviceone”)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：实例化App组件，并订阅loaded事件"><span class="nav-number">0.2.</span> <span class="nav-text">第二步：实例化App组件，并订阅loaded事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：使用openPage方法打开主页面"><span class="nav-number">0.3.</span> <span class="nav-text">第三步：使用openPage方法打开主页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建主页面框架"><span class="nav-number"></span> <span class="nav-text">搭建主页面框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#界面分析"><span class="nav-number">0.1.</span> <span class="nav-text">界面分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用do-ALayout组件进行布局"><span class="nav-number">0.2.</span> <span class="nav-text">使用do_ALayout组件进行布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加触摸功能图标"><span class="nav-number">0.3.</span> <span class="nav-text">添加触摸功能图标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现页面交互"><span class="nav-number"></span> <span class="nav-text">实现页面交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件对象的实例化"><span class="nav-number">0.1.</span> <span class="nav-text">组件对象的实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订阅touch事件"><span class="nav-number">0.2.</span> <span class="nav-text">订阅touch事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APP的退出"><span class="nav-number">0.3.</span> <span class="nav-text">APP的退出</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#应用程序的脚本入口app-js"><span class="nav-number">1.</span> <span class="nav-text">应用程序的脚本入口app.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：-require-“deviceone”"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一步： require(“deviceone”)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：实例化App组件，并订阅loaded事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二步：实例化App组件，并订阅loaded事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：使用openPage方法打开主页面"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三步：使用openPage方法打开主页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建主页面框架"><span class="nav-number">2.</span> <span class="nav-text">搭建主页面框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#界面分析"><span class="nav-number">2.0.1.</span> <span class="nav-text">界面分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用do-ALayout组件进行布局"><span class="nav-number">2.0.2.</span> <span class="nav-text">使用do_ALayout组件进行布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加触摸功能图标"><span class="nav-number">2.0.3.</span> <span class="nav-text">添加触摸功能图标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现页面交互"><span class="nav-number">3.</span> <span class="nav-text">实现页面交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件对象的实例化"><span class="nav-number">3.0.1.</span> <span class="nav-text">组件对象的实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订阅touch事件"><span class="nav-number">3.0.2.</span> <span class="nav-text">订阅touch事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APP的退出"><span class="nav-number">3.0.3.</span> <span class="nav-text">APP的退出</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

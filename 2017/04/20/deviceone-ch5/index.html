@@ -87,25 +87,34 @@
 
 
 
-<meta name="description" content="DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。 do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。这个IDE基于Eclipse RCP（富客户端平台Rich client plat">
+<meta name="description" content="上两节课我们完成了页面主框架，本次课我们对页面功能和细节进行进一步的完善，我们要完成的效果图如下：实例源代码戳此下载 添加新组件添加新组件本课将要用到两个新组件，do_DateTimePicker和do_Picker组件，这两个组件在最初创建应用时没有的，需要从组件商店中添加。在前面的教程中，我们通过IDE新建的项目，会在开发者中心-应用开发创建一个相应的应用。  点击应用配置按钮，进入应用配置页">
 <meta name="keywords" content="DeviceOne,App开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《DeviceOne移动应用开发》（一）开发环境的搭建与使用">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/deviceone-ch1/index.html">
+<meta property="og:title" content="《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/deviceone-ch5/index.html">
 <meta property="og:site_name" content="NewVinci">
-<meta property="og:description" content="DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。 do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。这个IDE基于Eclipse RCP（富客户端平台Rich client plat">
-<meta property="og:image" content="http://yoursite.com/uploads/deviceone.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/download1.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/download2.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/dostudio.png">
-<meta property="og:image" content="http://yoursite.com/uploads/ui1.png">
-<meta property="og:image" content="http://yoursite.com/uploads/debug1.png">
-<meta property="og:image" content="http://yoursite.com/uploads/pack1.png">
-<meta property="og:updated_time" content="2017-04-12T05:31:56.000Z">
+<meta property="og:description" content="上两节课我们完成了页面主框架，本次课我们对页面功能和细节进行进一步的完善，我们要完成的效果图如下：实例源代码戳此下载 添加新组件添加新组件本课将要用到两个新组件，do_DateTimePicker和do_Picker组件，这两个组件在最初创建应用时没有的，需要从组件商店中添加。在前面的教程中，我们通过IDE新建的项目，会在开发者中心-应用开发创建一个相应的应用。  点击应用配置按钮，进入应用配置页">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160323/9fe2c52ca2d84f4db67c0dd5abff68f7.jpg">
+<meta property="og:image" content="http://yoursite.com/uploads/ch5_01.png">
+<meta property="og:image" content="http://yoursite.com/uploads/ch5_02.png">
+<meta property="og:image" content="http://yoursite.com/uploads/ch5_03.png">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160324/c10b352e90764c2aabeb73349d6ebb93.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160324/2138b4238e584ec6958639c543c077c3.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160324/d90b86820b3d415bb1dff346cb02d4b4.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160324/e2fe0ffc2fbf4e2281922473a9b02406.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160324/0582b47fe021436b928e18fdf2b85293.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160324/97624b3fb2f14d46889419c2984d9d1f.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160325/4e4e85b9c25d457a881495cb94483fc2.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/095a8691a6b241c79cd05b699bfc4c0e.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/1867beaa51f64551ba9ca0c3e61caa7e.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/68bd11d5f6594486b1564f453f5ed72b.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/5ee289b8666d4b0c8bb6706c2437b734.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/85af02fd829143f489382567843cdf87.jpg">
+<meta property="og:updated_time" content="2017-05-03T04:18:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《DeviceOne移动应用开发》（一）开发环境的搭建与使用">
-<meta name="twitter:description" content="DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。 do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。这个IDE基于Eclipse RCP（富客户端平台Rich client plat">
-<meta name="twitter:image" content="http://yoursite.com/uploads/deviceone.jpg">
+<meta name="twitter:title" content="《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数">
+<meta name="twitter:description" content="上两节课我们完成了页面主框架，本次课我们对页面功能和细节进行进一步的完善，我们要完成的效果图如下：实例源代码戳此下载 添加新组件添加新组件本课将要用到两个新组件，do_DateTimePicker和do_Picker组件，这两个组件在最初创建应用时没有的，需要从组件商店中添加。在前面的教程中，我们通过IDE新建的项目，会在开发者中心-应用开发创建一个相应的应用。  点击应用配置按钮，进入应用配置页">
+<meta name="twitter:image" content="http://doc.deviceone.net/web/img/20160323/9fe2c52ca2d84f4db67c0dd5abff68f7.jpg">
 
 
 
@@ -133,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/deviceone-ch1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/deviceone-ch5/"/>
 
 
 
 
 
-  <title> 《DeviceOne移动应用开发》（一）开发环境的搭建与使用 | NewVinci </title>
+  <title> 《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数 | NewVinci </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/deviceone-ch1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/deviceone-ch5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="芬奇妞">
@@ -299,7 +308,7 @@
             
             
               
-                《DeviceOne移动应用开发》（一）开发环境的搭建与使用
+                《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数
               
             
           </h1>
@@ -314,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T10:53:52+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T16:05:35+08:00">
+                2017-04-20
               </time>
             
 
@@ -383,55 +392,32 @@
       
 
       
-        <p>   DeviceOne平台在官方文档中被简称do平台，许多组件名称也是以“do_”开头命名的，在我们的教程中会沿用这个简称。</p>
-<p>do平台的主要开发工作围绕官方提供的一个叫做DeviceOne Studio的IDE（集成开发环境的英文缩写）开展的，小白们可以将其类比为VS studio，Dreamweaver等IDE。<br>这个IDE基于Eclipse RCP（富客户端平台Rich client platform的缩写）开发，基本操作十分相似。这个IDE是跨平台的，目前支持Windows和Mac两个系统。</p>
-<h2 id="IDE的下载与安装"><a href="#IDE的下载与安装" class="headerlink" title="IDE的下载与安装"></a>IDE的下载与安装</h2><p>IDE的下载十分简单。进入<a href="http://doc.deviceone.net/web/doc/env/ide.htm" target="_blank" rel="external">http://doc.deviceone.net/web/doc/env/ide.htm</a>即可下载。<br>如果你记不住这个网址，有以下方法：</p>
-<ol>
-<li>进入DeviceOne<a href="http://www.deviceone.net" target="_blank" rel="external">官网</a>（百度一下，你就找到）；<br><img src="/uploads/deviceone.jpg" alt="官网"></li>
-<li>点击”Get Started” 进入<a href="http://study.deviceone.net" target="_blank" rel="external">新的页面</a>，将页面下拉，出现相关下载按钮。<img src="/uploads/download1.jpg" alt="开始使用"></li>
-<li>点击“开发IDE”即可进入<a href="http://doc.deviceone.net/web/doc/env/ide.htm" target="_blank" rel="external">下载页面</a>。<img src="/uploads/download2.jpg" alt="下载"></li>
-<li>选择需要下载的安装包版本即可，最新版本的安装包中内嵌JDK，一般不会出现java相关问题，安装包大小在400M以内（官方文档比较陈旧，说法有些不准确），估计随着平台的成熟这个安装包还会继续增大。</li>
-</ol>
-<p>安装过程与其他软件没有什么区别，有几点需要注意：</p>
-<ul>
-<li>不要将安装目录和workspace目录设置在安全级别较高的目录下，以免引起不必要的麻烦。</li>
-<li>在Windows平台下，不要用winrar解压，用winzip或者7z之类的工具解压。</li>
-<li>最好将安装包解压到一个不是很深的根目录中。</li>
-</ul>
-<h2 id="IDE的使用"><a href="#IDE的使用" class="headerlink" title="IDE的使用"></a>IDE的使用</h2><blockquote>
-<p>这一部分首先作为了解，在实际的使用过程中会逐步熟悉对IDE的操作。</p>
-</blockquote>
-<p>下图是do studio IDE的主界面，其开发基于Eclipse RCP，因此操作非常相似。<br><img src="/uploads/dostudio.png" alt=""><br>其常用功能如下：</p>
-<h3 id="应用工程管理"><a href="#应用工程管理" class="headerlink" title="应用工程管理"></a>应用工程管理</h3><p>如新建项目，导入项目等。可以使用菜单命令、工具栏按钮和右键菜单命令等不同的方式实现。</p>
-<ol>
-<li>新建应用：打开 IDE，第一步就是新建应用，目前支持javascript和lua两种语言。可使用<code>file</code>-&gt;<code>new</code>-&gt;<code>DeviceOne Project</code>命令实现。</li>
-<li>导入应用：如果想要打开别人开发的应用的源码，可使用<code>file</code>-&gt;<code>import</code>命令实现。</li>
-</ol>
-<h3 id="工程代码管理"><a href="#工程代码管理" class="headerlink" title="工程代码管理"></a>工程代码管理</h3><p>主要是利用<code>Script Explorer</code>面板进行操作。</p>
-<ol>
-<li>文件导航：采用树状结构管理一个工程下的所有代码和数据文件。</li>
-<li>新建文件：选中一个目录节点，可以在当前目录下新建文件，IDE支持多种格式的文件类型。</li>
-<li>文件操作：包括文件的删除、重命名、复制、移动等常用操作。</li>
-</ol>
-<h3 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h3><p>UI设计需要用到的面板有<code>UI可视化设计区</code>、<code>Components</code>、<code>Outline</code>、<code>Properties</code>等面板。</p>
-<ol>
-<li>组件列表（<code>Components</code>）：在<code>Script Explorer</code>面板中双击一个ui文件，即可打开UI设计视图，在组件列表中可以看到这个应用可使用的UI组件，通过鼠标拖拽组件至设计区。新建一个应用后在组件列表中会有缺省的10多个ui组件，如果需要更多组件，需要点击<code>应用配置</code>按钮，然后添加更多的组件。添加结束后，还需要点击<code>应用同步</code>按钮.<img src="/uploads/ui1.png" alt=""></li>
-<li>UI结构树（<code>Outline</code>）：IDE将ui文件内的组件可视化成一个结构树，从根节点开始，包含子节点，如果子节点是容器内节点，还可以再包含子节点。另外节点右键有菜单，可删除，复制，粘帖等常用功能。如果节点是容器节点，右键菜单还有“增加”功能，增加一个子组件到这个容器下。另外还支持鼠标拖拽功能。</li>
-<li>属性设置（<code>Properties</code>）：在设计区或者UI结构树上选取一个UI组件对象，可以修改它的base properties(基础属性)和special properties(特有属性)，其中基础属性是所有UI组件都具有的属性，特有属性是每个独立的UI组件特有的属性。很多属性（不是所有的)一修改马上就能在设计区实时看到修改后的效果。</li>
-</ol>
-<h3 id="代码编辑"><a href="#代码编辑" class="headerlink" title="代码编辑"></a>代码编辑</h3><ol>
-<li>编辑器基础功能：IDE提供了常用编辑器的基本功能，包括双击js或lua文件打开对应的文本编辑页面，双击页签关闭分页。工具栏里的功能包括Eclipse常用的编辑器功能。</li>
-<li>自动提示：编辑器提供了好几种代码自动提示功能，比如补全变量名，补全ui的id，提示属性，事件，方法，回车补全函数参数集合等，快捷键的设置也和Eclipse标准一致。</li>
-</ol>
-<h3 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h3><ol>
-<li>调试服务: 可以使用官方提供的调试终端应用（也可以自己打包生成）进行开发过程中的调试。将调试终端应用安装到你的手机上，并保证调试终端（你的手机）和IDE（你开发APP用的电脑）在同一网段，即可进行调试。</li>
-<li>设计器能接受到手机端发送的调试日志，包括运行时的异常，包括用户调用<code>deviceone.print</code>方法传过来的自定义日志，需确保手机上的调试终端把调试开关打开。<br><img src="/uploads/debug1.png" alt=""><br>除了print外，用户还可以通过调用do_Notification.alert和toast来弹出提示窗口来调试数据。</li>
-</ol>
-<p>官方调试终端安装包下载地址为<a href="http://doc.deviceone.net/web/doc/env/debug_app.htm" target="_blank" rel="external">http://doc.deviceone.net/web/doc/env/debug_app.htm</a>。</p>
-<h3 id="云打包"><a href="#云打包" class="headerlink" title="云打包"></a>云打包</h3><ol>
-<li>调试终端打包：用户调试的时候可以选择自己想要的组件，定制化生成调试终端安装包。点击工具栏的<code>调试版本</code>按钮。</li>
-<li>应用开发基本上都是在用调试终端调试代码，一旦应用功能完后需要通过打成一个正式的安装包，有自己的图标，名称，签名等等，可以上传官方的Appstore，可以给最终用户下载使用。只需点击工具栏的<code>发布版本</code>按钮。<br><img src="/uploads/pack1.png" alt=""></li>
-</ol>
+        <p>上两节课我们完成了页面主框架，本次课我们对页面功能和细节进行进一步的完善，我们要完成的效果图如下：<br><img src="http://doc.deviceone.net/web/img/20160323/9fe2c52ca2d84f4db67c0dd5abff68f7.jpg" alt=""><br>实例源代码戳此<a href="http://doc.deviceone.net/web/zip/20160714/a9665fe0327645dfa7f3fecb4b1787ed.zip" target="_blank" rel="external">下载</a></p>
+<h1 id="添加新组件"><a href="#添加新组件" class="headerlink" title="添加新组件"></a>添加新组件</h1><h2 id="添加新组件-1"><a href="#添加新组件-1" class="headerlink" title="添加新组件"></a>添加新组件</h2><p>本课将要用到两个新组件，<code>do_DateTimePicker</code>和<code>do_Picker</code>组件，这两个组件在最初创建应用时没有的，需要从组件商店中添加。在前面的教程中，我们通过IDE新建的项目，会在开发者中心-应用开发创建一个相应的应用。</p>
+<p><img src="/uploads/ch5_01.png" alt=""></p>
+<p>点击<code>应用配置</code>按钮，进入应用配置页，选择“组件配置”，如下图所示:</p>
+<p><img src="/uploads/ch5_02.png" alt=""></p>
+<p>在这个页面中展示了你的应用程序中已经添加组件和应用商店中的全部组件。点击<code>全部组件</code>按钮找到你需要的组件，将光标悬停在该选项上，点击<code>+</code>按钮即可以将组件添加到你的应用中。</p>
+<p><img src="/uploads/ch5_03.png" alt=""></p>
+<p>我们找到<code>do_DateTimePicker</code>和<code>do_Picker</code>组件，将他们添加进应用程序。</p>
+<h2 id="同步新组件"><a href="#同步新组件" class="headerlink" title="同步新组件"></a>同步新组件</h2><p>想要在设计器中使用刚刚添加的两个组件，只需要在WorkSpace中选中该应用，再点击一下同步按钮即可。这样我们从商店选择的新组件就可以在设计器中使用了。<br><img src="http://doc.deviceone.net/web/img/20160324/c10b352e90764c2aabeb73349d6ebb93.jpg" alt=""></p>
+<h1 id="完成页面布局"><a href="#完成页面布局" class="headerlink" title="完成页面布局"></a>完成页面布局</h1><p>分析一下页面布局，这里我们使用一个线性布局<code>LinearLayout</code>(红框)去包裹四个绝对布局<code>ALayout</code>（蓝框）这四个<code>ALayout</code>的ID从上到下分别设置为<code>do_ALayout_3</code>、<code>do_ALayout_createTime</code>、<code>do_ALayout_type</code>和<code>do_ALayout_7</code>，因为线性布局所有内部子控件都从上向下罗列，保证组件直接紧密排列，每个ALayout中又去分别包裹<code>Label</code>标签组件、<code>TextBox</code>、<code>TextField</code>等用于显示和输入的组件，最底下都有一个<em>height</em>为1，<em>bgColor</em>为灰色的<code>ALayout</code>作为一条分割线。<br><img src="http://doc.deviceone.net/web/img/20160324/2138b4238e584ec6958639c543c077c3.jpg" alt=""></p>
+<p>提示：以上需要1个线性布局组件和8个绝对布局组件。</p>
+<h1 id="加入交互动画"><a href="#加入交互动画" class="headerlink" title="加入交互动画"></a>加入交互动画</h1><p>我们希望在用户输入反馈信息的标题时呈现一个小的动画效果。<br>在ID为<code>do_ALayout_3</code>的ALayout中，添加一个Label组件（修改ID为<code>do_Label_title</code>）和一个单行文本TextField（修改ID为<code>do_TextField_title</code>），通过给Label设置text属性为“标题”来展示我们想要显示的文字；修改TextField的hint属性为“标题”能让该组件在text属性为空时显示提示信息。<br><img src="http://doc.deviceone.net/web/img/20160324/d90b86820b3d415bb1dff346cb02d4b4.jpg" alt=""><br>我们想让输入文字时有显示“标题”的Label组件有一个向上的动画效果，直接订阅TextField的textChanged事件，这个事件会在text改变时触发，在事件的回调中调用所有UI都有的基类方法show，通过给show方法设置动画类型和动画时间参数，来达到Label的动画效果，需要说明的是，在使用show方法前要保证UI组件的visible是为false的才会有动画效果。同样的效果我们也给放“内容”的Label加上。<br><img src="http://doc.deviceone.net/web/img/20160324/e2fe0ffc2fbf4e2281922473a9b02406.jpg" alt=""></p>
+<h1 id="弹出日期选择（使用do-DateTimePicker组件）"><a href="#弹出日期选择（使用do-DateTimePicker组件）" class="headerlink" title="弹出日期选择（使用do_DateTimePicker组件）"></a>弹出日期选择（使用<code>do_DateTimePicker</code>组件）</h1><p>我们想要在点击“反馈时间”的<code>do_ALayout</code>（ID为<code>do_ALayout_createTime</code>）时弹出<code>do_DateTimePicker</code>选择日期，只需要订阅<code>do_ALayout_createTime</code>的touch点击事件，在触发事件的回调中调用<code>do_DateTimePicker</code>的show方法来显示一个日期选择器。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160324/0582b47fe021436b928e18fdf2b85293.jpg" alt=""></p>
+<p>因为<code>do_DateTimePicker</code>是SM类型的，这里直接通过类型来对组件进行实例化。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160324/97624b3fb2f14d46889419c2984d9d1f.jpg" alt=""></p>
+<h1 id="直接引用UI页面"><a href="#直接引用UI页面" class="headerlink" title="直接引用UI页面"></a>直接引用UI页面</h1><p>要实现文章顶部的效果图第三张所示效果，我们首先要单独添加一个UI页面，只放一个Picker组件，并将页面的其他地方设置为灰色透明效果。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160325/4e4e85b9c25d457a881495cb94483fc2.jpg" alt=""></p>
+<p>想要在点击“反馈类型”时该页面直接弹出，只需先添加该页面到index.ui页面中，并按id实例化该页面.</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/095a8691a6b241c79cd05b699bfc4c0e.jpg" alt=""></p>
+<p>再订阅<code>do_ALayout_type</code>的touch事件，在事件触发的回调中调用所有UI组件都有的积累方法show来显示组件本身即可完成在一个页面中直接引用另外一个UI页面。<br><img src="http://doc.deviceone.net/web/img/20160328/1867beaa51f64551ba9ca0c3e61caa7e.jpg" alt=""></p>
+<h1 id="自定义函数的使用"><a href="#自定义函数的使用" class="headerlink" title="自定义函数的使用"></a>自定义函数的使用</h1><p>页面画完后，我们要做的就是把用户填写的数据提交到后台。在提交数据之前，我们要处理一下用户提交的数据，使用的是自定义函数，必须在source://script目录下新建一个tool.js文件，在该脚本环境中定义自定义函数，并声明这个函数使其能被外部应用。<br><img src="http://doc.deviceone.net/web/img/20160328/68bd11d5f6594486b1564f453f5ed72b.jpg" alt=""></p>
+<p>在index.ui.js中require引用一下该方法，就可以在index.ui.js中使用该自定义函数了。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/5ee289b8666d4b0c8bb6706c2437b734.jpg" alt=""></p>
+<p>然后我们使用http的upload方式将用户填写和选择的数据提交到后台处理，整个反馈意见的功能就完成了。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/85af02fd829143f489382567843cdf87.jpg" alt=""></p>
 
       
     </div>
@@ -481,18 +467,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/11/deviceone-ch2/" rel="next" title="《DeviceOne移动应用开发》（二）创建你的第一个移动应用">
-                <i class="fa fa-chevron-left"></i> 《DeviceOne移动应用开发》（二）创建你的第一个移动应用
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/08/deviceone_intro/" rel="prev" title="《DeviceOne移动应用开发》课程导语">
-                《DeviceOne移动应用开发》课程导语 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/19/deviceone-ch4/" rel="prev" title="《DeviceOne移动应用开发》（四）完善APP页面主框架——容器组件的使用">
+                《DeviceOne移动应用开发》（四）完善APP页面主框架——容器组件的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -652,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE的下载与安装"><span class="nav-number">1.</span> <span class="nav-text">IDE的下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE的使用"><span class="nav-number">2.</span> <span class="nav-text">IDE的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用工程管理"><span class="nav-number">2.1.</span> <span class="nav-text">应用工程管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程代码管理"><span class="nav-number">2.2.</span> <span class="nav-text">工程代码管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI设计"><span class="nav-number">2.3.</span> <span class="nav-text">UI设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码编辑"><span class="nav-number">2.4.</span> <span class="nav-text">代码编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真机调试"><span class="nav-number">2.5.</span> <span class="nav-text">真机调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#云打包"><span class="nav-number">2.6.</span> <span class="nav-text">云打包</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加新组件"><span class="nav-number">1.</span> <span class="nav-text">添加新组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新组件-1"><span class="nav-number">1.1.</span> <span class="nav-text">添加新组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步新组件"><span class="nav-number">1.2.</span> <span class="nav-text">同步新组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完成页面布局"><span class="nav-number">2.</span> <span class="nav-text">完成页面布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加入交互动画"><span class="nav-number">3.</span> <span class="nav-text">加入交互动画</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#弹出日期选择（使用do-DateTimePicker组件）"><span class="nav-number">4.</span> <span class="nav-text">弹出日期选择（使用do_DateTimePicker组件）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接引用UI页面"><span class="nav-number">5.</span> <span class="nav-text">直接引用UI页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义函数的使用"><span class="nav-number">6.</span> <span class="nav-text">自定义函数的使用</span></a></li></ol></div>
             
 
           </div>

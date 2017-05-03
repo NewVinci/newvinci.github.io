@@ -270,6 +270,185 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/deviceone-ch5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="芬奇妞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NewVinci">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/20/deviceone-ch5/" itemprop="url">
+                  《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T16:05:35+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/" itemprop="url" rel="index">
+                    <span itemprop="name">系列教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/移动应用开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动应用开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上两节课我们完成了页面主框架，本次课我们对页面功能和细节进行进一步的完善，我们要完成的效果图如下：<br><img src="http://doc.deviceone.net/web/img/20160323/9fe2c52ca2d84f4db67c0dd5abff68f7.jpg" alt=""><br>实例源代码戳此<a href="http://doc.deviceone.net/web/zip/20160714/a9665fe0327645dfa7f3fecb4b1787ed.zip" target="_blank" rel="external">下载</a></p>
+<h1 id="添加新组件"><a href="#添加新组件" class="headerlink" title="添加新组件"></a>添加新组件</h1><h2 id="添加新组件-1"><a href="#添加新组件-1" class="headerlink" title="添加新组件"></a>添加新组件</h2><p>本课将要用到两个新组件，<code>do_DateTimePicker</code>和<code>do_Picker</code>组件，这两个组件在最初创建应用时没有的，需要从组件商店中添加。在前面的教程中，我们通过IDE新建的项目，会在开发者中心-应用开发创建一个相应的应用。</p>
+<p><img src="/uploads/ch5_01.png" alt=""></p>
+<p>点击<code>应用配置</code>按钮，进入应用配置页，选择“组件配置”，如下图所示:</p>
+<p><img src="/uploads/ch5_02.png" alt=""></p>
+<p>在这个页面中展示了你的应用程序中已经添加组件和应用商店中的全部组件。点击<code>全部组件</code>按钮找到你需要的组件，将光标悬停在该选项上，点击<code>+</code>按钮即可以将组件添加到你的应用中。</p>
+<p><img src="/uploads/ch5_03.png" alt=""></p>
+<p>我们找到<code>do_DateTimePicker</code>和<code>do_Picker</code>组件，将他们添加进应用程序。</p>
+<h2 id="同步新组件"><a href="#同步新组件" class="headerlink" title="同步新组件"></a>同步新组件</h2><p>想要在设计器中使用刚刚添加的两个组件，只需要在WorkSpace中选中该应用，再点击一下同步按钮即可。这样我们从商店选择的新组件就可以在设计器中使用了。<br><img src="http://doc.deviceone.net/web/img/20160324/c10b352e90764c2aabeb73349d6ebb93.jpg" alt=""></p>
+<h1 id="完成页面布局"><a href="#完成页面布局" class="headerlink" title="完成页面布局"></a>完成页面布局</h1><p>分析一下页面布局，这里我们使用一个线性布局<code>LinearLayout</code>(红框)去包裹四个绝对布局<code>ALayout</code>（蓝框）这四个<code>ALayout</code>的ID从上到下分别设置为<code>do_ALayout_3</code>、<code>do_ALayout_createTime</code>、<code>do_ALayout_type</code>和<code>do_ALayout_7</code>，因为线性布局所有内部子控件都从上向下罗列，保证组件直接紧密排列，每个ALayout中又去分别包裹<code>Label</code>标签组件、<code>TextBox</code>、<code>TextField</code>等用于显示和输入的组件，最底下都有一个<em>height</em>为1，<em>bgColor</em>为灰色的<code>ALayout</code>作为一条分割线。<br><img src="http://doc.deviceone.net/web/img/20160324/2138b4238e584ec6958639c543c077c3.jpg" alt=""></p>
+<p>提示：以上需要1个线性布局组件和8个绝对布局组件。</p>
+<h1 id="加入交互动画"><a href="#加入交互动画" class="headerlink" title="加入交互动画"></a>加入交互动画</h1><p>我们希望在用户输入反馈信息的标题时呈现一个小的动画效果。<br>在ID为<code>do_ALayout_3</code>的ALayout中，添加一个Label组件（修改ID为<code>do_Label_title</code>）和一个单行文本TextField（修改ID为<code>do_TextField_title</code>），通过给Label设置text属性为“标题”来展示我们想要显示的文字；修改TextField的hint属性为“标题”能让该组件在text属性为空时显示提示信息。<br><img src="http://doc.deviceone.net/web/img/20160324/d90b86820b3d415bb1dff346cb02d4b4.jpg" alt=""><br>我们想让输入文字时有显示“标题”的Label组件有一个向上的动画效果，直接订阅TextField的textChanged事件，这个事件会在text改变时触发，在事件的回调中调用所有UI都有的基类方法show，通过给show方法设置动画类型和动画时间参数，来达到Label的动画效果，需要说明的是，在使用show方法前要保证UI组件的visible是为false的才会有动画效果。同样的效果我们也给放“内容”的Label加上。<br><img src="http://doc.deviceone.net/web/img/20160324/e2fe0ffc2fbf4e2281922473a9b02406.jpg" alt=""></p>
+<h1 id="弹出日期选择（使用do-DateTimePicker组件）"><a href="#弹出日期选择（使用do-DateTimePicker组件）" class="headerlink" title="弹出日期选择（使用do_DateTimePicker组件）"></a>弹出日期选择（使用<code>do_DateTimePicker</code>组件）</h1><p>我们想要在点击“反馈时间”的<code>do_ALayout</code>（ID为<code>do_ALayout_createTime</code>）时弹出<code>do_DateTimePicker</code>选择日期，只需要订阅<code>do_ALayout_createTime</code>的touch点击事件，在触发事件的回调中调用<code>do_DateTimePicker</code>的show方法来显示一个日期选择器。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160324/0582b47fe021436b928e18fdf2b85293.jpg" alt=""></p>
+<p>因为<code>do_DateTimePicker</code>是SM类型的，这里直接通过类型来对组件进行实例化。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160324/97624b3fb2f14d46889419c2984d9d1f.jpg" alt=""></p>
+<h1 id="直接引用UI页面"><a href="#直接引用UI页面" class="headerlink" title="直接引用UI页面"></a>直接引用UI页面</h1><p>要实现文章顶部的效果图第三张所示效果，我们首先要单独添加一个UI页面，只放一个Picker组件，并将页面的其他地方设置为灰色透明效果。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160325/4e4e85b9c25d457a881495cb94483fc2.jpg" alt=""></p>
+<p>想要在点击“反馈类型”时该页面直接弹出，只需先添加该页面到index.ui页面中，并按id实例化该页面.</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/095a8691a6b241c79cd05b699bfc4c0e.jpg" alt=""></p>
+<p>再订阅<code>do_ALayout_type</code>的touch事件，在事件触发的回调中调用所有UI组件都有的积累方法show来显示组件本身即可完成在一个页面中直接引用另外一个UI页面。<br><img src="http://doc.deviceone.net/web/img/20160328/1867beaa51f64551ba9ca0c3e61caa7e.jpg" alt=""></p>
+<h1 id="自定义函数的使用"><a href="#自定义函数的使用" class="headerlink" title="自定义函数的使用"></a>自定义函数的使用</h1><p>页面画完后，我们要做的就是把用户填写的数据提交到后台。在提交数据之前，我们要处理一下用户提交的数据，使用的是自定义函数，必须在source://script目录下新建一个tool.js文件，在该脚本环境中定义自定义函数，并声明这个函数使其能被外部应用。<br><img src="http://doc.deviceone.net/web/img/20160328/68bd11d5f6594486b1564f453f5ed72b.jpg" alt=""></p>
+<p>在index.ui.js中require引用一下该方法，就可以在index.ui.js中使用该自定义函数了。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/5ee289b8666d4b0c8bb6706c2437b734.jpg" alt=""></p>
+<p>然后我们使用http的upload方式将用户填写和选择的数据提交到后台处理，整个反馈意见的功能就完成了。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/85af02fd829143f489382567843cdf87.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/deviceone-ch4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1346,7 +1525,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

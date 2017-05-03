@@ -1,0 +1,809 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DeviceOne,App开发," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本节教程将介绍如何用DeviceOne简单而高效的完成一个新闻页面。将要学习的demo效果图如下所示。  示例代码戳此下载 页面分析为了方便大家理解页面结构，请参考下图：  图中红框所示的上面部分是SegmentView组件，和下面的BottomBar共同组成页面公共部分，而蓝框中是一个SlideView组件，可以左右滑动切换页面且跟SegmentView联动，页面个数则是取决于数据条数，如数据有">
+<meta name="keywords" content="DeviceOne,App开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《DeviceOne移动应用开发》（五）数据视图">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/deviceone-ch6/index.html">
+<meta property="og:site_name" content="NewVinci">
+<meta property="og:description" content="本节教程将介绍如何用DeviceOne简单而高效的完成一个新闻页面。将要学习的demo效果图如下所示。  示例代码戳此下载 页面分析为了方便大家理解页面结构，请参考下图：  图中红框所示的上面部分是SegmentView组件，和下面的BottomBar共同组成页面公共部分，而蓝框中是一个SlideView组件，可以左右滑动切换页面且跟SegmentView联动，页面个数则是取决于数据条数，如数据有">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/5313eb4baf174d489d7e2de5840593d0.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/3a15e7655ac049728602516139c68920.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/ce0aa608b5914248b28eeb4b20e4b7ed.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/218b28e7edb54e899d06722ec2ccd14d.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/d224fb375fca4776a87a652389e47c47.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/d470e280119c4b8aa24d05190aef7db8.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/6b4788fe395649bdb1d32ff03ba81c49.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/6a29a98d9fd74d088dfba646130ea009.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/167561513dda436482124bbe46bc76e8.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160401/d601a91eccb74757ae3a2bc19412f497.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160401/9ff75feddfdf4cc78d93915a30f0d5f8.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160331/ad0b96efa2c249e4a5631b6d426cf804.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160401/c986ad3f08434ad79d2021a404b558f3.jpg">
+<meta property="og:updated_time" content="2017-05-03T05:06:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《DeviceOne移动应用开发》（五）数据视图">
+<meta name="twitter:description" content="本节教程将介绍如何用DeviceOne简单而高效的完成一个新闻页面。将要学习的demo效果图如下所示。  示例代码戳此下载 页面分析为了方便大家理解页面结构，请参考下图：  图中红框所示的上面部分是SegmentView组件，和下面的BottomBar共同组成页面公共部分，而蓝框中是一个SlideView组件，可以左右滑动切换页面且跟SegmentView联动，页面个数则是取决于数据条数，如数据有">
+<meta name="twitter:image" content="http://doc.deviceone.net/web/img/20160328/5313eb4baf174d489d7e2de5840593d0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/deviceone-ch6/"/>
+
+
+
+
+
+  <title> 《DeviceOne移动应用开发》（五）数据视图 | NewVinci </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NewVinci</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">越成长越快乐</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/deviceone-ch6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="芬奇妞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NewVinci">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《DeviceOne移动应用开发》（五）数据视图
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T12:31:31+08:00">
+                2017-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/" itemprop="url" rel="index">
+                    <span itemprop="name">系列教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/移动应用开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动应用开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本节教程将介绍如何用DeviceOne简单而高效的完成一个新闻页面。<br>将要学习的demo效果图如下所示。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/5313eb4baf174d489d7e2de5840593d0.jpg" alt=""></p>
+<p>示例代码戳此<a href="http://doc.deviceone.net/web/zip/20160714/762201024984461087822df0e7769b7f.zip" target="_blank" rel="external">下载</a></p>
+<h1 id="页面分析"><a href="#页面分析" class="headerlink" title="页面分析"></a>页面分析</h1><p>为了方便大家理解页面结构，请参考下图：</p>
+<p><img src="http://doc.deviceone.net/web/img/20160328/3a15e7655ac049728602516139c68920.jpg" alt=""></p>
+<p>图中红框所示的上面部分是SegmentView组件，和下面的BottomBar共同组成页面公共部分，而蓝框中是一个SlideView组件，可以左右滑动切换页面且跟SegmentView联动，页面个数则是取决于数据条数，如数据有四条就有四个页面；绿框所示是ListView组件，在本教程中是SlideView的模板，而ListView又可以绑定不同模板来展现不同页面；而黄框所示是跟上节教程中相同的直接引用一个UI页面。总而言之，这里的页面层级关系是SlideView的模板中嵌套了一个ListView，而ListView的模板又是其他不同页面。<br><img src="http://doc.deviceone.net/web/img/20160331/ce0aa608b5914248b28eeb4b20e4b7ed.jpg" alt=""></p>
+<h1 id="数据模版分离"><a href="#数据模版分离" class="headerlink" title="数据模版分离"></a>数据模版分离</h1><p><code>DeviceOne</code>的数据绑定是采用了MVVM模式的，实现了页面和数据分离，数据通过绑定在不同模板上控制了页面的显示。<code>DeviceOne</code>提供了两个数据绑定组件，都是MM类型组件，一个是<code>ListData</code>，它本质上是一个可变数组（支持JSON array），可以增删改查数据；另外一个是<code>HashData</code>，它本质上是一个可变key-value键值对，也可以增删改查。<br>这里我们给SegmentView定义一个数据源jsonTabs，<br><img src="http://doc.deviceone.net/web/img/20160331/218b28e7edb54e899d06722ec2ccd14d.jpg" alt=""></p>
+<p>再把这个数据源赋值给数据绑定组件ListData，定义SegmentView的数据模型module。<br><img src="http://doc.deviceone.net/web/img/20160331/d224fb375fca4776a87a652389e47c47.jpg" alt=""></p>
+<p>因为数据绑定组件可以绑定不同的数据源，而一个数据源只能被一个数据绑定组件绑定，是一对多的关系，所以当我们想把相同的数据源作为SlideView的数据模型module时需要复制一份数据源。</p>
+<p>定义好数据模型module，我们再来定义ViewModel也就是模板视图。先给SegmentView定义一个模板视图UI页面newsTypeTabTemplate.ui，修改根ALayout的id为do_ALayout_root，里面拖拽一个Label，修改id为do_Label_title，调整Label的位置和大小。<br><img src="http://doc.deviceone.net/web/img/20160331/d470e280119c4b8aa24d05190aef7db8.jpg" alt=""></p>
+<p>然后我们在newsTypeTabTemplate.ui.js里把Label的text和tag属性通过UI组件通用的setMapping方法跟数据模型module联系起来，定义映射关系，这样ViewModule模板视图就完成了。（其中name和selected是jsonTabs数据源中的key）<br><img src="http://doc.deviceone.net/web/img/20160331/6b4788fe395649bdb1d32ff03ba81c49.jpg" alt=""><br>现在只需要修改SegmentView的template属性，将属性值指向我们刚刚定义的newsTypeTabTemplate.ui的url，View和ViewModule就联系起来了。<br><img src="http://doc.deviceone.net/web/img/20160331/6a29a98d9fd74d088dfba646130ea009.jpg" alt=""></p>
+<p>最后我们要将数据模型module和它们都建立起联系，只需要用SegmentView添加绑定了数据模型module的ListData组件即可。<br><img src="http://doc.deviceone.net/web/img/20160331/167561513dda436482124bbe46bc76e8.jpg" alt=""></p>
+<p>更多关于数据绑定的介绍，详见<a href="http://doc.deviceone.net/web/doc/detail_course/databind.htm" target="_blank" rel="external">数据绑定</a></p>
+<h1 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h1><p>为了让更真实的模拟新闻类App的使用习惯，我们处理一下选择不同的SegmentView时底下的SlideView页面也跟着切换的效果，即让SegmentView和SlideView联动起来。这个步骤非常简单，只需要在SegmentView的indexChanged事件中将当前SegmentView所处cell的index赋值给SlideView的cell，即可完成。<br><img src="http://doc.deviceone.net/web/img/20160401/d601a91eccb74757ae3a2bc19412f497.jpg" alt=""></p>
+<p>我们想要在SlideView切换不同的cell的同时页面数据也跟着切换，这就需要在SlideView的indexChanged事件里做大量操作，为了优化代码结构，这里就将切换数据的操作全部放在自定义事件selectOneTab中完成，只在触发indexChanged事件的回调中同时触发该自定义事件，这样我们在订阅selectOneTab事件时所作代码也都会被执行了。</p>
+<p>订阅selectOneTab事件，在其中做更新数据的操作。<br><img src="http://doc.deviceone.net/web/img/20160401/9ff75feddfdf4cc78d93915a30f0d5f8.jpg" alt=""></p>
+<p>需要特殊注意的是，自定义事件的订阅和触发可以不在同一个页面的脚本环境中完成，只需要保证自定义事件的触发在订阅之后即可。</p>
+<p>更多关于自定义事件的使用，详见<a href="http://doc.deviceone.net/web/doc/detail_course/event_message.htm" target="_blank" rel="external">自定义事件</a>。</p>
+<p>这里为了更好的体验效果，让SlideView能无限滑动并且加载速度更快，只需要简单的设置两个属性即可。其一就是将SlideView的looping属性设置为true，实现无限滑动；其二就是设置isAllCache属性为true，在浏览上一页时预缓存下个页面。</p>
+<h1 id="展示新闻"><a href="#展示新闻" class="headerlink" title="展示新闻"></a>展示新闻</h1><p>新闻展示页面的数据是通过Http组件请求的后台数据，在手势向下pull或向上push滑动页面时刷新请求，接下来详细说下这个步骤如何实现。</p>
+<h2 id="展示新闻-1"><a href="#展示新闻-1" class="headerlink" title="展示新闻"></a>展示新闻</h2><p>用上面同样的方法，我们先处理一下SlideView的数据和模板，不同的是这里SlideView的模板里嵌套了一个ListView组件，所以我们先处理ListView组件。ListView的数据是从后台通过http请求获取的，所以在添加了ListView的页面newsIndexSlideTemplate.ui对应的newsIndexSlideTemplate.ui.js脚本环境中去请求数据，并在Http的请求成功事件中将数据绑定给一个ListData组件，再让ListView去绑定该数据，同时复位pull或push出来的头部。（需要注意的是，这里直接将请求到的数据绑定给ListView组件，所以需要前后台沟通好数据格式，在后台保存时也是用JSON Array。）<br><img src="http://doc.deviceone.net/web/img/20160331/ad0b96efa2c249e4a5631b6d426cf804.jpg" alt=""></p>
+<p>因为ListView是支持多模版的，这里我们给ListView组件绑定两个模板，一个用于展示新闻列表newsRowTemplate0.ui，一个用于展示轮播图片newsRowTemplate1.ui。这两个模板也同样在模板页的根节点上调用setMapping方法定义好数据映射关系，这样数据与模板就结合起来了，在ListView上就能显示我们从后台请求到的数据了。</p>
+<p>这里提一个小的处理，因为我们不确定要展示的数据到底有多少个字节，全部展示要占用多大的空间，所以我们设置ListView的模板页中要展示数据的Label的高度为-1，表示自动高度，并且将maxLines属性设置为2，表示最多只显示两行，这样就能控制每个cell显示数据的空间都是固定高度的，数据能整齐排列。</p>
+<p>另外一个小处理就是让图片显示的速度更快，因为所有图片都是网络图片，显示之前都会先去请求，这样在网络环境不稳定时可能会导致图片显示框先出现默认图片（设置defaultImage）再显示真正要显示的图片。这里只需要简单的设置ImageView的cacheType为temporary，表示第一次加载图片时就缓存到本地，以后每次打开这个ImageView都会先读缓存的本地图片，然后再读服务器的网络图片，这样就能优化ImageView的加载速度，从而提高体验。</p>
+<h2 id="刷新新闻"><a href="#刷新新闻" class="headerlink" title="刷新新闻"></a>刷新新闻</h2><p>想要在ListView页面上向下pull和向上push操作中获取新的数据并重新显示在模板中，首先要设置ListView的isFooterVisible和isHeaderVisible属性为true，这样上下拉的时候使头部和尾部可见，再分别在ListView的pull和push事件中去重新请求数据，并且在http请求的success事件中调用ListView的rebound方法让头部或尾部复位。</p>
+<p><img src="http://doc.deviceone.net/web/img/20160401/c986ad3f08434ad79d2021a404b558f3.jpg" alt=""></p>
+<h2 id="九宫格展示"><a href="#九宫格展示" class="headerlink" title="九宫格展示"></a>九宫格展示</h2><p>最后，我们说一下第三张效果图中点击“+”号会弹出一个快速选择新闻类型的UI界面如何实现。</p>
+<p>首先画出需要弹出的UI页面newsTypeGrids.ui，也如之前教程中处理弹出Picker页面一样，在该页面中只放一个GridView组件，其他地方设置成灰色半透明效果。再设置GridView的模板页newsTypeGridTemplate.ui，同样定义好数据映射，将之前给SegmentView定义的数据源也复制一份让GridView绑定上，最后只需要在“+”号的touch事件中让newsTypeGrids.ui显示出来即可。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="芬奇妞 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DeviceOne/" rel="tag"># DeviceOne</a>
+          
+            <a href="/tags/App开发/" rel="tag"># App开发</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/20/deviceone-ch5/" rel="prev" title="《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数">
+                《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="芬奇妞" />
+          <p class="site-author-name" itemprop="name">芬奇妞</p>
+           
+              <p class="site-description motion-element" itemprop="description">It doesn't matter.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://baixin.io/" title="潘柏信" target="_blank">潘柏信</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="nexT" target="_blank">nexT</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/zh-cn/" title="Hexo官网" target="_blank">Hexo官网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.liaoxuefeng.com" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#页面分析"><span class="nav-number">1.</span> <span class="nav-text">页面分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据模版分离"><span class="nav-number">2.</span> <span class="nav-text">数据模版分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义事件"><span class="nav-number">3.</span> <span class="nav-text">自定义事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#展示新闻"><span class="nav-number">4.</span> <span class="nav-text">展示新闻</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#展示新闻-1"><span class="nav-number">4.1.</span> <span class="nav-text">展示新闻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新新闻"><span class="nav-number">4.2.</span> <span class="nav-text">刷新新闻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九宫格展示"><span class="nav-number">4.3.</span> <span class="nav-text">九宫格展示</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">芬奇妞</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

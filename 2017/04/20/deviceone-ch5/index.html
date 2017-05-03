@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/68bd11d5f6594486b1564f453f5ed72b.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/5ee289b8666d4b0c8bb6706c2437b734.jpg">
 <meta property="og:image" content="http://doc.deviceone.net/web/img/20160328/85af02fd829143f489382567843cdf87.jpg">
-<meta property="og:updated_time" content="2017-05-03T04:18:22.000Z">
+<meta property="og:updated_time" content="2017-05-03T04:23:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《DeviceOne移动应用开发》（五）功能及细节的完善——添加新组件与自定义函数">
 <meta name="twitter:description" content="上两节课我们完成了页面主框架，本次课我们对页面功能和细节进行进一步的完善，我们要完成的效果图如下：实例源代码戳此下载 添加新组件添加新组件本课将要用到两个新组件，do_DateTimePicker和do_Picker组件，这两个组件在最初创建应用时没有的，需要从组件商店中添加。在前面的教程中，我们通过IDE新建的项目，会在开发者中心-应用开发创建一个相应的应用。  点击应用配置按钮，进入应用配置页">
@@ -410,11 +410,11 @@
 <p><img src="http://doc.deviceone.net/web/img/20160324/97624b3fb2f14d46889419c2984d9d1f.jpg" alt=""></p>
 <h1 id="直接引用UI页面"><a href="#直接引用UI页面" class="headerlink" title="直接引用UI页面"></a>直接引用UI页面</h1><p>要实现文章顶部的效果图第三张所示效果，我们首先要单独添加一个UI页面，只放一个Picker组件，并将页面的其他地方设置为灰色透明效果。</p>
 <p><img src="http://doc.deviceone.net/web/img/20160325/4e4e85b9c25d457a881495cb94483fc2.jpg" alt=""></p>
-<p>想要在点击“反馈类型”时该页面直接弹出，只需先添加该页面到index.ui页面中，并按id实例化该页面.</p>
+<p>想要在点击“反馈类型”时该页面直接弹出，只需先添加该页面到main.ui页面中，并按id实例化该页面.</p>
 <p><img src="http://doc.deviceone.net/web/img/20160328/095a8691a6b241c79cd05b699bfc4c0e.jpg" alt=""></p>
 <p>再订阅<code>do_ALayout_type</code>的touch事件，在事件触发的回调中调用所有UI组件都有的积累方法show来显示组件本身即可完成在一个页面中直接引用另外一个UI页面。<br><img src="http://doc.deviceone.net/web/img/20160328/1867beaa51f64551ba9ca0c3e61caa7e.jpg" alt=""></p>
 <h1 id="自定义函数的使用"><a href="#自定义函数的使用" class="headerlink" title="自定义函数的使用"></a>自定义函数的使用</h1><p>页面画完后，我们要做的就是把用户填写的数据提交到后台。在提交数据之前，我们要处理一下用户提交的数据，使用的是自定义函数，必须在source://script目录下新建一个tool.js文件，在该脚本环境中定义自定义函数，并声明这个函数使其能被外部应用。<br><img src="http://doc.deviceone.net/web/img/20160328/68bd11d5f6594486b1564f453f5ed72b.jpg" alt=""></p>
-<p>在index.ui.js中require引用一下该方法，就可以在index.ui.js中使用该自定义函数了。</p>
+<p>在main.ui.js中require引用一下该方法，就可以在main.ui.js中使用该自定义函数了。</p>
 <p><img src="http://doc.deviceone.net/web/img/20160328/5ee289b8666d4b0c8bb6706c2437b734.jpg" alt=""></p>
 <p>然后我们使用http的upload方式将用户填写和选择的数据提交到后台处理，整个反馈意见的功能就完成了。</p>
 <p><img src="http://doc.deviceone.net/web/img/20160328/85af02fd829143f489382567843cdf87.jpg" alt=""></p>

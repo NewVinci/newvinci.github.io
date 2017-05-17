@@ -87,17 +87,22 @@
 
 
 
-<meta name="description" content="这一学期给学生上一个叫做《移动应用产品设计》的课程。讲实在话，这个课程不同专业背景的老师上，会有不同的教学内容。分析实际情况，我希望学生能作出一个APP产品来。但我的学生并不是学软件工程或计算机的，如果让他们开发原生APP，那几乎是异想天开。但他们之前上过Web前端的课程，学了点儿Javascript（后来的事实证明他们全忘光了，好像老师从来没有讲过一样，无奈我又补充了一些Javascript基础">
+<meta name="description" content="本节教程摘自deviceone官方教程，（原文地址），目标是教会大家如何加载本地通讯录。 将要学习的demo效果图如下所示： 本节示例demo请参考下载地址，可以导入到设计器中学习。 这节教程中将要用到的组件有do_Contact、do_IndexListView，请大家按照前几节教程所教授的方法，提前添加这两个组件，并打成相应调试包用于调试。 导入通讯录要用到的组件do_Contactdo_Co">
 <meta name="keywords" content="DeviceOne,App开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《DeviceOne移动应用开发》课程导语">
-<meta property="og:url" content="http://yoursite.com/2017/04/08/deviceone_intro/index.html">
+<meta property="og:title" content="《DeviceOne移动应用开发》（七）IndexListView的使用——完成通讯录页面">
+<meta property="og:url" content="http://yoursite.com/2017/05/17/deviceone-ch7/index.html">
 <meta property="og:site_name" content="NewVinci">
-<meta property="og:description" content="这一学期给学生上一个叫做《移动应用产品设计》的课程。讲实在话，这个课程不同专业背景的老师上，会有不同的教学内容。分析实际情况，我希望学生能作出一个APP产品来。但我的学生并不是学软件工程或计算机的，如果让他们开发原生APP，那几乎是异想天开。但他们之前上过Web前端的课程，学了点儿Javascript（后来的事实证明他们全忘光了，好像老师从来没有讲过一样，无奈我又补充了一些Javascript基础">
-<meta property="og:updated_time" content="2017-04-19T05:30:59.000Z">
+<meta property="og:description" content="本节教程摘自deviceone官方教程，（原文地址），目标是教会大家如何加载本地通讯录。 将要学习的demo效果图如下所示： 本节示例demo请参考下载地址，可以导入到设计器中学习。 这节教程中将要用到的组件有do_Contact、do_IndexListView，请大家按照前几节教程所教授的方法，提前添加这两个组件，并打成相应调试包用于调试。 导入通讯录要用到的组件do_Contactdo_Co">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160422/fbf04b284754494995dbf41c38198a36.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160422/b6a76ff0d20f4b59827cc35495c00a39.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160422/7fb983baa9ea470dba67527d101307b0.jpg">
+<meta property="og:image" content="http://doc.deviceone.net/web/img/20160422/75d85f00b59f4c9a8cb2934b6059ebc7.jpg">
+<meta property="og:updated_time" content="2017-05-17T03:12:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《DeviceOne移动应用开发》课程导语">
-<meta name="twitter:description" content="这一学期给学生上一个叫做《移动应用产品设计》的课程。讲实在话，这个课程不同专业背景的老师上，会有不同的教学内容。分析实际情况，我希望学生能作出一个APP产品来。但我的学生并不是学软件工程或计算机的，如果让他们开发原生APP，那几乎是异想天开。但他们之前上过Web前端的课程，学了点儿Javascript（后来的事实证明他们全忘光了，好像老师从来没有讲过一样，无奈我又补充了一些Javascript基础">
+<meta name="twitter:title" content="《DeviceOne移动应用开发》（七）IndexListView的使用——完成通讯录页面">
+<meta name="twitter:description" content="本节教程摘自deviceone官方教程，（原文地址），目标是教会大家如何加载本地通讯录。 将要学习的demo效果图如下所示： 本节示例demo请参考下载地址，可以导入到设计器中学习。 这节教程中将要用到的组件有do_Contact、do_IndexListView，请大家按照前几节教程所教授的方法，提前添加这两个组件，并打成相应调试包用于调试。 导入通讯录要用到的组件do_Contactdo_Co">
+<meta name="twitter:image" content="http://doc.deviceone.net/web/img/20160422/fbf04b284754494995dbf41c38198a36.jpg">
 
 
 
@@ -125,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/08/deviceone_intro/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/17/deviceone-ch7/"/>
 
 
 
 
 
-  <title> 《DeviceOne移动应用开发》课程导语 | NewVinci </title>
+  <title> 《DeviceOne移动应用开发》（七）IndexListView的使用——完成通讯录页面 | NewVinci </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/deviceone_intro/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/17/deviceone-ch7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="芬奇妞">
@@ -291,7 +296,7 @@
             
             
               
-                《DeviceOne移动应用开发》课程导语
+                《DeviceOne移动应用开发》（七）IndexListView的使用——完成通讯录页面
               
             
           </h1>
@@ -306,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T13:14:35+08:00">
-                2017-04-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-17T10:39:25+08:00">
+                2017-05-17
               </time>
             
 
@@ -375,22 +380,19 @@
       
 
       
-        <p>这一学期给学生上一个叫做《移动应用产品设计》的课程。讲实在话，这个课程不同专业背景的老师上，会有不同的教学内容。分析实际情况，我希望学生能作出一个APP产品来。但我的学生并不是学软件工程或计算机的，如果让他们开发原生APP，那几乎是异想天开。但他们之前上过Web前端的课程，学了点儿Javascript（后来的事实证明他们全忘光了，好像老师从来没有讲过一样，无奈我又补充了一些Javascript基础知识），具有一定的开发基础。我就试着找这样一个平台。</p>
-<p>曾经想要用微信小程序，但是当时小程序还没有开放给个人用户，而且是个新生事物，我不能贸然将一个课程建设在一个未知的领域上，虽然我很看好。</p>
-<p>在准备课程的过程中，我发现了一个适合我们学生的平台，这就是DeviceOne，号称是跨平台、低成本、纯原生（实际上是对原生接口进行了封装）的APP开发服务，重点是，支持Javascript，这就不需要任何的技术迁移，而且使用这个平台，非常简单，学生之需要了解它的基本工作原理，像搭积木一样就可以将应用做出来，对于我的教学目标来说，足够了！</p>
-<p>本教程是我在上课过程中的一个梳理，供有兴趣的朋友们参考。初步定为八讲，其实就是一个入门教程。</p>
-<ul>
-<li><a href="https://newvinci.github.io/2017/04/10/deviceone-ch1/" target="_blank" rel="external">第一讲 开发环境的搭建与使用</a></li>
-<li>第二讲 <a href="https://newvinci.github.io/2017/04/11/deviceone-ch2/" target="_blank" rel="external">创建你的第一个移动应用
-</a></li>
-<li>第三讲 <a href="https://newvinci.github.io/2017/04/11/deviceone-ch3/" target="_blank" rel="external">搭建APP页面框架——布局组件的使用</a></li>
-<li>第四讲 <a href="https://newvinci.github.io/2017/04/19/deviceone-ch4/" target="_blank" rel="external">完善APP页面框架——容器组件的使用</a></li>
-<li>第五讲 </li>
-<li>第六讲 </li>
-<li>第七讲 </li>
-<li>第八讲 </li>
-</ul>
-<p>后续也可能会推送高阶教程，欢迎大家关注。</p>
+        <p>本节教程摘自deviceone官方教程，（<a href="http://doc.deviceone.net/web/doc/basic_course/contact.htm" target="_blank" rel="external">原文地址</a>），目标是教会大家如何加载本地通讯录。</p>
+<p>将要学习的demo效果图如下所示：</p>
+<p><img src="http://doc.deviceone.net/web/img/20160422/fbf04b284754494995dbf41c38198a36.jpg" alt=""><br>本节示例demo请参考<a href="http://doc.deviceone.net/web/zip/20160714/326b638894c54020a103126788b9d5d5.zip" target="_blank" rel="external">下载地址</a>，可以导入到设计器中学习。</p>
+<p>这节教程中将要用到的组件有<code>do_Contact</code>、<code>do_IndexListView</code>，请大家按照前几节教程所教授的方法，提前添加这两个组件，并打成相应调试包用于调试。</p>
+<h1 id="导入通讯录"><a href="#导入通讯录" class="headerlink" title="导入通讯录"></a>导入通讯录</h1><h2 id="要用到的组件"><a href="#要用到的组件" class="headerlink" title="要用到的组件"></a>要用到的组件</h2><h3 id="do-Contact"><a href="#do-Contact" class="headerlink" title="do_Contact"></a><code>do_Contact</code></h3><p><code>do_Contact</code>组件是针对手机本地通讯录的“增、删、查、改”提供相应功能的一个组件</p>
+<p>###<code>do_IndexListView</code><br><code>do_IndexListView</code>是一个右边带索引的ListView组件，通过索引能快速定位到该索引下首条数据，常被用于类似通讯录和歌曲列表等功能中。</p>
+<h2 id="目标分析"><a href="#目标分析" class="headerlink" title="目标分析"></a>目标分析</h2><p>想要在App中模拟手机通讯录功能，只需简单地将本地通讯录里的数据读取出来并将这些数据绑定给IndexListView中展示即可。</p>
+<h3 id="View-Model"><a href="#View-Model" class="headerlink" title="View Model"></a>View Model</h3><p>先按照之前的教程中提到过的MVVM模型，给<code>do_IndexListView</code>定义一个模板页<code>addressCell.ui</code>，在<code>addressCell.ui.js</code>中定义好数据映射，再将<code>do_IndexListView</code>的<code>template</code>属性指向<code>addressCell.ui</code>的地址，这样<code>ViewModel</code>就定义好了。一会儿我们从本地通讯录中获取的数据将在模板中显示。</p>
+<h3 id="data-module"><a href="#data-module" class="headerlink" title="data module"></a>data module</h3><p>接下来再准备数据module。我们将从本地通讯录中读取出的数据绑定给do_HashData组件。首先，定义一个MM类的数据源组件<code>do_HashData</code>，并向其中添加本地通讯录中读取出来的数据，再让<code>do_IndexListView</code>去绑定<code>do_HashData</code>数据源即可。</p>
+<p>代码片段如下：<br><img src="http://doc.deviceone.net/web/img/20160422/b6a76ff0d20f4b59827cc35495c00a39.jpg" alt=""></p>
+<h1 id="自定义js模块"><a href="#自定义js模块" class="headerlink" title="自定义js模块"></a>自定义js模块</h1><p>在上图红框中的代码，导入了自定义js库，获取通讯录的联系人的首字母拼音。</p>
+<p>这里简单说下如何引用自定义js库和自定义js函数。</p>
+<p>被引用的js库和js函数必须放在source://script目录下，文件以.js为后缀。<br><img src="http://doc.deviceone.net/web/img/20160422/7fb983baa9ea470dba67527d101307b0.jpg" alt=""><br>要引用库的.ui.js文件中引入自定义js库即可使用自定义函数了。<br><img src="http://doc.deviceone.net/web/img/20160422/75d85f00b59f4c9a8cb2934b6059ebc7.jpg" alt=""><br>详细的文档详见<a href="http://doc.deviceone.net/web/doc/detail_course/custom_js.htm" target="_blank" rel="external">自定义js模块的说明</a></p>
 
       
     </div>
@@ -440,15 +442,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/deviceone-ch1/" rel="next" title="《DeviceOne移动应用开发》（一）开发环境的搭建与使用">
-                <i class="fa fa-chevron-left"></i> 《DeviceOne移动应用开发》（一）开发环境的搭建与使用
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/03/deviceone-ch6/" rel="prev" title="《DeviceOne移动应用开发》（六）典型数据视图的使用——完成一个新闻页面">
+                《DeviceOne移动应用开发》（六）典型数据视图的使用——完成一个新闻页面 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -495,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -588,6 +599,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导入通讯录"><span class="nav-number">1.</span> <span class="nav-text">导入通讯录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#要用到的组件"><span class="nav-number">1.1.</span> <span class="nav-text">要用到的组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#do-Contact"><span class="nav-number">1.1.1.</span> <span class="nav-text">do_Contact</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标分析"><span class="nav-number">1.2.</span> <span class="nav-text">目标分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#View-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">View Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-module"><span class="nav-number">1.2.2.</span> <span class="nav-text">data module</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义js模块"><span class="nav-number">2.</span> <span class="nav-text">自定义js模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

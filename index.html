@@ -270,6 +270,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/17/deviceone-ch7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="芬奇妞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NewVinci">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/17/deviceone-ch7/" itemprop="url">
+                  《DeviceOne移动应用开发》（七）IndexListView的使用——完成通讯录页面
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-17T10:39:25+08:00">
+                2017-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/" itemprop="url" rel="index">
+                    <span itemprop="name">系列教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系列教程/移动应用开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动应用开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本节教程摘自deviceone官方教程，（<a href="http://doc.deviceone.net/web/doc/basic_course/contact.htm" target="_blank" rel="external">原文地址</a>），目标是教会大家如何加载本地通讯录。</p>
+<p>将要学习的demo效果图如下所示：</p>
+<p><img src="http://doc.deviceone.net/web/img/20160422/fbf04b284754494995dbf41c38198a36.jpg" alt=""><br>本节示例demo请参考<a href="http://doc.deviceone.net/web/zip/20160714/326b638894c54020a103126788b9d5d5.zip" target="_blank" rel="external">下载地址</a>，可以导入到设计器中学习。</p>
+<p>这节教程中将要用到的组件有<code>do_Contact</code>、<code>do_IndexListView</code>，请大家按照前几节教程所教授的方法，提前添加这两个组件，并打成相应调试包用于调试。</p>
+<h1 id="导入通讯录"><a href="#导入通讯录" class="headerlink" title="导入通讯录"></a>导入通讯录</h1><h2 id="要用到的组件"><a href="#要用到的组件" class="headerlink" title="要用到的组件"></a>要用到的组件</h2><h3 id="do-Contact"><a href="#do-Contact" class="headerlink" title="do_Contact"></a><code>do_Contact</code></h3><p><code>do_Contact</code>组件是针对手机本地通讯录的“增、删、查、改”提供相应功能的一个组件</p>
+<p>###<code>do_IndexListView</code><br><code>do_IndexListView</code>是一个右边带索引的ListView组件，通过索引能快速定位到该索引下首条数据，常被用于类似通讯录和歌曲列表等功能中。</p>
+<h2 id="目标分析"><a href="#目标分析" class="headerlink" title="目标分析"></a>目标分析</h2><p>想要在App中模拟手机通讯录功能，只需简单地将本地通讯录里的数据读取出来并将这些数据绑定给IndexListView中展示即可。</p>
+<h3 id="View-Model"><a href="#View-Model" class="headerlink" title="View Model"></a>View Model</h3><p>先按照之前的教程中提到过的MVVM模型，给<code>do_IndexListView</code>定义一个模板页<code>addressCell.ui</code>，在<code>addressCell.ui.js</code>中定义好数据映射，再将<code>do_IndexListView</code>的<code>template</code>属性指向<code>addressCell.ui</code>的地址，这样<code>ViewModel</code>就定义好了。一会儿我们从本地通讯录中获取的数据将在模板中显示。</p>
+<h3 id="data-module"><a href="#data-module" class="headerlink" title="data module"></a>data module</h3><p>接下来再准备数据module。我们将从本地通讯录中读取出的数据绑定给do_HashData组件。首先，定义一个MM类的数据源组件<code>do_HashData</code>，并向其中添加本地通讯录中读取出来的数据，再让<code>do_IndexListView</code>去绑定<code>do_HashData</code>数据源即可。</p>
+<p>代码片段如下：<br><img src="http://doc.deviceone.net/web/img/20160422/b6a76ff0d20f4b59827cc35495c00a39.jpg" alt=""></p>
+<h1 id="自定义js模块"><a href="#自定义js模块" class="headerlink" title="自定义js模块"></a>自定义js模块</h1><p>在上图红框中的代码，导入了自定义js库，获取通讯录的联系人的首字母拼音。</p>
+<p>这里简单说下如何引用自定义js库和自定义js函数。</p>
+<p>被引用的js库和js函数必须放在source://script目录下，文件以.js为后缀。<br><img src="http://doc.deviceone.net/web/img/20160422/7fb983baa9ea470dba67527d101307b0.jpg" alt=""><br>要引用库的.ui.js文件中引入自定义js库即可使用自定义函数了。<br><img src="http://doc.deviceone.net/web/img/20160422/75d85f00b59f4c9a8cb2934b6059ebc7.jpg" alt=""><br>详细的文档详见<a href="http://doc.deviceone.net/web/doc/detail_course/custom_js.htm" target="_blank" rel="external">自定义js模块的说明</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/deviceone-ch6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1706,7 +1872,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
